@@ -1,0 +1,27 @@
+calls = 0
+def coung_calls():
+    global calls
+    calls = (calls +1)
+def string_info (string):
+    coung_calls()
+    len_string = len(string)
+    kolvo = []
+    kolvo.append(len_string)
+    kolvo.append(string.upper())
+    kolvo.append(string.lower())
+    kolvo = tuple(kolvo)
+    return kolvo
+def is_contains (string, list_to_search):
+    coung_calls()
+    string = string.lower()
+    list_to_search = [element.lower() for element in list_to_search]
+    if string in list_to_search:
+        return True
+    else:
+        return False
+    coung_calls()
+print(string_info('Capybara'))
+print(string_info('Armageddon'))
+print(is_contains('Urban', ['ban', 'BaNaN', 'urBAN'])) # Urban ~ urBAN
+print(is_contains('cycle', ['recycling', 'cyclic'])) # No matches
+print(calls)
